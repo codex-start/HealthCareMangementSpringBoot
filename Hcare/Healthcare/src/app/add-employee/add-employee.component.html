@@ -1,0 +1,99 @@
+
+<div class="container">
+
+        <h3>ADD PATIENT DETAILS</h3>
+
+    <form #userForm="ngForm" (ngSubmit)='onSubmit(userForm.value)'>
+
+        <!-- <div class="form-group">
+
+            <label>PATIENT ID: </label>
+
+            <input required minlength="1" type="number" #empIdRef='ngModel' name="patientId" ngModel class="form-control">
+
+            <div *ngIf='empIdRef.errors && empIdRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!empIdRef.errors.required'> Provide PATIENT Id </div>
+
+            </div>
+        </div> -->
+        <div class="form-group">
+
+            <label>PATIENT NAME: </label>
+
+            <input required minlength="6" type="text" #empNameRef='ngModel' name="patientName" ngModel class="form-control">
+
+            <div *ngIf='empNameRef.errors
+                        && empNameRef.touched' class="alert alert-danger">
+                <div *ngIf='empNameRef.errors.required'>Provide PATIENT Name </div>
+                <div *ngIf='!empNameRef.errors.pattern'>Name should be minimum of 6 characters length</div>
+            </div>
+
+        </div>
+        <div class="form-group">
+
+            <label>PATIENT AGE: </label>
+
+            <input type="number" #empsalRef='ngModel' name="patientAge" ngModel class="form-control">
+
+            <div *ngIf='empsalRef.errors && empsalRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!empsalRef.errors.required'> Provide PATIENT AGE </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label>PATIENT DESC </label>
+
+            <input type="text" #empphoneRef='ngModel'  name="patientDesc" ngModel class="form-control">
+
+            <div *ngIf='empphoneRef.errors && empphoneRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!empphoneRef.errors.required'> Provide PATIENT DESC </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label>PATIENT ADDR </label>
+
+            <input required minlength="6" type="text" #empcompanyName='ngModel' name="patientAddr" ngModel
+                class="form-control">
+
+            <div *ngIf='empcompanyName.errors
+                        && empcompanyName.touched' class="alert alert-danger">
+
+                <div [hidden]='!empcompanyName.errors.required'>
+
+                    Provide PATIENT ADDRESS
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group">
+
+            <label>PATIENT Appointment </label>
+
+            <input required minlength="6" type="text" #empcompanyName='ngModel' name="appointDoc" ngModel
+                class="form-control">
+
+            <div *ngIf='empcompanyName.errors
+                        && empcompanyName.touched' class="alert alert-danger">
+
+                <div [hidden]='!empcompanyName.errors.required'>
+
+                    Provide PATIENT Appointment
+                </div>
+            </div>
+
+        </div>
+        <input [disabled]="!userForm.valid" type="submit" value="Add PATIENT" class="btn btn-primary">
+
+    </form>
+
+</div>
+<div>
+    <h2>{{message}}</h2>
+</div>

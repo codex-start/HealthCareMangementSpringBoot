@@ -1,0 +1,53 @@
+<html>
+<head>
+    </head>
+    
+   <body>
+<div class="container">
+    <div class="form-group">
+        <label for="search">Search </label>
+        <input type="text"  id="search" [ngModel]="searchText" (ngModelChange)="searchKey($event)"  placeholder="Find by name" ngModel>
+    </div>
+    <table class="table table-striped" *ngIf="employees && !error && employees.length > 0  ">
+        <thead>
+        <tr>
+            <th>PATIENT ID</th>
+            <th>PATIENT NAME</th>
+            <th>PATIENT AGE</th>
+            <th>PATIENT DESCRIPTION</th>
+            <th>PATIENT ADDRESS</th>
+            <th>APPOINT DOCTOR</th>
+            <th>EDIT PATIENT</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let e of filteredEmployees" style="text-align: center;">
+                <td> {{e.patientId}} </td>
+                <td> {{e.patientName}} </td>
+                <td> {{e.patientAge}} </td>
+                <td>{{e.patientDesc}}</td>
+                <td> {{e.patientAddr}} </td>
+                <td> {{e.appointDoc}} </td>
+                <td >
+                    <i class="fas fa-trash"(click) =delete(e)></i>
+                </td>
+                <td>
+                 <i class="fas fa-edit" (click)=update(e)></i>
+                </td>
+                <td>
+            </tr>
+        </tbody>
+    </table>
+    <div *ngIf="error" >
+        <h4 class="alert alert-danger"> {{error}}</h4>
+    </div>
+    <!-- <div *ngIf="employees" >
+        <h4 align="center"> There are no employees to display,please add the employees! </h4>
+    </div> -->
+  
+</div>
+<div>
+
+</div>
+</body>
+</html>

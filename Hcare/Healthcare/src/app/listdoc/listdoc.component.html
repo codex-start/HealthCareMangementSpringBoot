@@ -1,0 +1,45 @@
+
+<html>
+    <head>
+        </head>
+        
+       <body>
+    <div class="container">
+        <div class="form-group">
+            <label for="search">Search </label>
+            <input type="text"  id="search" [ngModel]="searchText" (ngModelChange)="searchKey($event)"  placeholder="Find by name" ngModel>
+        </div>
+        <table class="table table-striped" *ngIf="employees && !error && employees.length > 0  ">
+            <thead>
+            <tr>
+                <th>DOCTOR ID</th>
+                <th>DOCTOR NAME</th>
+                <th>DOCTOR DESC</th>
+                
+            </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let e of filteredEmployees" style="text-align: center;">
+                    <td> {{e.doctorId}} </td>
+                    <td> {{e.doctorName}} </td>
+                    <td> {{e.doctorDesc}} </td>
+                 <td >
+                        <i class="fas fa-trash"(click) =deleteDoc(e)></i>
+                    </td>
+                    <td>
+                     <i class="fas fa-edit" (click)=updateDoc(e)></i>
+                    </td>
+                    <td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="error" >
+            <h4 class="alert alert-danger"> {{error}}</h4>
+        </div>
+      
+    </div>
+    <div>
+    
+    </div>
+    </body>
+    </html>
